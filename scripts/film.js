@@ -1,4 +1,4 @@
-const apiUrl = "https://api.themoviedb.org/3/trending/tv/week?api_key=57be7838f9d1d893350a3227c0e862a5"
+const apiUrl = "https://api.themoviedb.org/3/movie/popular?api_key=57be7838f9d1d893350a3227c0e862a5"
 const tvList = document.getElementById("tv-list")
 const tvCard = document.getElementById("tv-card")
 
@@ -9,7 +9,7 @@ fetch(apiUrl)
             const tvItem = document.createElement("li")
             tvItem.innerHTML = `
                 <div id="tv-card">
-                <a href="/cinetech/html/series-detail.html?id=${tv.id}">
+                <a href="/cinetech/html/film-detail.html?id=${tv.id}">
                         <img src="https://image.tmdb.org/t/p/w500${tv.poster_path}" alt="${tv.name}">
                     </a>
                 </div>
