@@ -6,15 +6,15 @@ fetch(apiUrl)
     .then(response => response.json())
     .then(data => {
         data.results.forEach(tv => {
-            const tvItem = document.createElement("li")
+            const tvItem = document.createElement("div")
             tvItem.innerHTML = `
-                <div id="tv-card">
-                    <a href ="/cinetech/html/series-detail.html">
+                <div id="tv-details">
+                    <a href="/cinetech/html/series-detail.html?id=${tv.id}">
                         <img src="https://image.tmdb.org/t/p/w500${tv.poster_path}" alt="${tv.name}">
                     </a>
                 </div>
             `
-            tvList.appendChild(tvItem)
+            tvDetails.appendChild(tvItem)
         })
     })
     .catch(error => {
