@@ -3,14 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/cinetech/style/series.css">
-    <script defer src="/cinetech/scripts/serie.js"></script>
-    <title>Cinétech | série</title>
+    <link rel="stylesheet" href="style/series.css">
+    <script defer src="scripts/serie.js"></script>
+    <title>Cinétech | séries</title>
 </head>
 <body>
+    <header>
+        <form id="search-form">
+            <input type="text" id="search-input" placeholder="Rechercher...">
+            <button type="submit">Rechercher</button>
+        </form>
+    </header>
     <h1>Trending TV shows</h1>
-    <div id="tv-list">
-        
+    <div id="search-results">
+        <!-- Les résultats de recherche seront affichés ici -->
     </div>
+    <div id="tv-list">
+        <!-- Les séries populaires du moment seront affichées ici -->
+    </div>
+    <script src="scripts/search.js"></script>
 </body>
 </html>
