@@ -24,7 +24,3 @@ const Id = urlParams.get('id');
     .catch(error => {
         console.error(error)
     })
-
-
-
-
