@@ -62,16 +62,18 @@ body{
 
 /* Style pour chaque carte de résultat de recherche */
 #search-results .card {
+    background-color: #29292985;
     border: 1px solid black; /* Bordure jaune */
     border-radius: 10px;
     padding: 1rem;
-    min-height: 250px;
+    height: 280px;
+    width: 100%;
     position: relative;
 }
 
 /* Effet de survol sur chaque carte de résultat de recherche */
 #search-results .card:hover {
-    box-shadow: 0 0 30px yellow; /* Ombre jaune au survol */
+    box-shadow: 0 0 30px yellow;
     transform: scale(1.1);
     transition: transform 0.5s;
     filter: brightness(0.5);
@@ -85,11 +87,9 @@ body{
     position: absolute;
     top: 10px;
     left: 10px;
-    color: #000;
-    text-shadow: 1px 1px 0 #fff, -1px -1px 0 #fff, 1px -1px 0 #fff, -1px 1px 0 #fff;
+    color: yellow;
+    text-shadow: 1px 1px 0 black, -1px -1px 0 black, 1px -1px 0 black, -1px 1px 0 black;
 }
-
-
 
 /* Style pour l'image dans chaque carte de résultat */
 .card img {
@@ -101,7 +101,7 @@ body{
 
 /* Effet de survol sur l'image */
 #search-results img:hover {
-    transform: scale(1.1);
+    transform: scale(1.2);
     transition: transform 0.5s;
     filter: brightness(0.5);
 }
