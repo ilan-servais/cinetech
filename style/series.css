@@ -34,6 +34,7 @@ li{
 }
 
 #tv-card:hover img{
+    box-shadow: 0 0 30px yellow;
     transform: scale(1.1);
     transition: transform 0.5s;
     filter: brightness(0.5);
@@ -60,7 +61,10 @@ li{
 
 /* Effet de survol sur chaque carte de résultat de recherche */
 #search-results .card:hover {
-    box-shadow: 0 0 30px rgba(255, 255, 0, 0.5); /* Ombre jaune au survol */
+    box-shadow: 0 0 30px yellow;
+    transform: scale(1.1);
+    transition: transform 0.5s;
+    filter: brightness(0.5);
 }
 
 /* Style pour le titre à l'intérieur de chaque carte */
