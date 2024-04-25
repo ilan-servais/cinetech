@@ -51,28 +51,70 @@ body{
     margin: 0.5rem;
 }
 
-/* search form */
-#search-form {
-    display: flex;
-    align-items: center;
+/* Style pour la section des résultats de recherche */
+#search-results {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 1rem;
+    padding: 1rem;
+}
+
+/* Style pour chaque carte de résultat de recherche */
+#search-results .card {
+    border: 1px solid black; /* Bordure jaune */
+    border-radius: 10px;
+    padding: 1rem;
+    min-height: 200px;
+    position: relative;
+}
+
+/* Effet de survol sur chaque carte de résultat de recherche */
+#search-results .card:hover {
+    box-shadow: 0 0 30px rgba(255, 255, 0, 0.5); /* Ombre jaune au survol */
+}
+
+/* Style pour le titre à l'intérieur de chaque carte */
+#search-results .card h2 {
+    margin: 0;
+    align-self: flex-start;
+    justify-self: flex-start;
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    color: #000;
+    text-shadow: 1px 1px 0 #fff, -1px -1px 0 #fff, 1px -1px 0 #fff, -1px 1px 0 #fff;
+}
+
+
+
+/* Style pour l'image dans chaque carte de résultat */
+.card img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+/* Effet de survol sur l'image */
+#search-results img:hover {
+    transform: scale(1.1);
+    transition: transform 0.5s;
+    filter: brightness(0.5);
+}
+
+.form-control-dark {
+    border-color: var(--bs-gray);
+  }
+  .form-control-dark:focus {
+    border-color: #fff;
+    box-shadow: 0 0 0 .25rem rgba(255, 255, 255, .25);
   }
   
-  #search-input {
-    padding: 10px;
-    width: 200px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
+  .text-small {
+    font-size: 85%;
   }
   
-  button {
-    padding: 10px 20px;
-    background-color: #007bff;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
+  .dropdown-toggle:not(:focus) {
+    outline: 0;
   }
   
-  button:hover {
-    background-color: #0056b3;
-  }
