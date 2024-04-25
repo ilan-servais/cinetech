@@ -53,7 +53,8 @@ li{
     border: 1px solid black; /* Bordure jaune */
     border-radius: 10px;
     padding: 1rem;
-    min-height: 200px;
+    height: 280px;
+    width: 100%;
     position: relative;
 }
 
@@ -107,3 +108,11 @@ li{
     outline: 0;
   }
   
+  .main-bg {
+    background: linear-gradient(360deg, #1C1C1C 10%, #494949 360%);
+    min-height: 100vh;
+}
+
+.main-bg {
+    padding: 10px;
+}
