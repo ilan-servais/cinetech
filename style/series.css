@@ -53,15 +53,12 @@ li{
     background-color: #29292985;
     border: 1px solid black; /* Bordure jaune */
     border-radius: 10px;
-    padding: 1rem;
-    height: 280px;
-    width: 100%;
     position: relative;
 }
 
 /* Effet de survol sur chaque carte de résultat de recherche */
 #search-results .card:hover {
-    box-shadow: 0 0 30px yellow;
+    box-shadow: 0 0 130px yellow;
     transform: scale(1.1);
     transition: transform 0.5s;
     filter: brightness(0.5);
@@ -79,8 +76,6 @@ li{
     text-shadow: 1px 1px 0 black, -1px -1px 0 black, 1px -1px 0 black, -1px 1px 0 black;
 }
 
-
-
 /* Style pour l'image dans chaque carte de résultat */
 .card img {
     width: 100%;
@@ -91,7 +86,7 @@ li{
 
 /* Effet de survol sur l'image */
 #search-results img:hover {
-    transform: scale(1.2);
+    transform: scale(1.1);
     transition: transform 0.5s;
     filter: brightness(0.5);
 }
@@ -113,7 +108,7 @@ li{
   }
   
   .main-bg {
-    background: linear-gradient(360deg, #1C1C1C 10%, #494949 360%);
+    background: black;
     min-height: 100vh;
 }
 
