@@ -46,37 +46,41 @@ function displaySearchResults(results) {
     // Supprimer les cartes de résultats existantes
     searchResultsSection.innerHTML = '';
 
-    // Parcourir les résultats et créer une carte pour chaque résultat
-    results.forEach(result => {
-        // Créer une carte pour le résultat
-        const card = document.createElement('div');
-        card.classList.add('card');
+// Parcourir les résultats et créer une carte pour chaque résultat
+results.forEach(result => {
+    // Créer une carte pour le résultat
+    const card = document.createElement('div');
+    card.classList.add('card');
 
-        // Créer un lien autour de la carte
-        const link = document.createElement('a');
-        if (result.media_type === 'movie') {
-            // Lien vers la page de détails des films avec l'ID du film en tant que paramètre de requête
-            link.href = `http://127.0.0.1:5500/film-detail.html?id=${result.id}`;
-        } else if (result.media_type === 'tv') {
-            // Lien vers la page de détails des séries avec l'ID de la série en tant que paramètre de requête
-            link.href = `http://127.0.0.1:5500/serie-detail.html?id=${result.id}`;
-        }
-        link.appendChild(card);
+    // Créer un lien autour de la carte
+    const link = document.createElement('a');
+    if (result.media_type === 'movie') {
+        // Lien vers la page de détails des films avec l'ID du film en tant que paramètre de requête
+        link.href = `http://127.0.0.1:5500/film-detail.html?id=${result.id}`;
+    } else if (result.media_type === 'tv') {
+        // Lien vers la page de détails des séries avec l'ID de la série en tant que paramètre de requête
+        link.href = `http://127.0.0.1:5500/serie-detail.html?id=${result.id}`;
+    }
+    link.appendChild(card);
 
-        // Ajouter le titre du résultat à la carte
-        const title = document.createElement('h2');
-        title.textContent = result.title || result.name || 'Titre non disponible';
-        card.appendChild(title);
+    // Raccourcir le titre si sa longueur dépasse 20 caractères
+    const titleText = result.title || result.name || 'Titre non disponible';
+    const title = document.createElement('h2');
+    title.textContent = titleText.length > 10 ? titleText.slice(0, 10) + '...' : titleText;
+    card.appendChild(title);
 
-        // Ajouter une image de fond à la carte si disponible
-        if (result.backdrop_path) {
-            const backdropUrl = `https://image.tmdb.org/t/p/w500${result.backdrop_path}`;
-            card.style.backgroundImage = `url('${backdropUrl}')`;
-        }
+    // Ajouter une image à la carte si disponible
+    if (result.poster_path) {
+        const image = document.createElement('img');
+        image.src = `https://image.tmdb.org/t/p/w500${result.poster_path}`;
+        image.alt = result.title || result.name || 'Titre non disponible';
+        image.classList.add('card-img-top'); // Ajouter une classe pour cibler l'image dans le CSS
+        card.appendChild(image);
+    }
 
-        // Ajouter le lien à la section des résultats
-        searchResultsSection.appendChild(link);
-    });
+    // Ajouter le lien à la section des résultats
+    searchResultsSection.appendChild(link);
+});
 }
 
 // Sélection de l'élément du formulaire de recherche

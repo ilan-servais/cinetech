@@ -75,8 +75,8 @@ li{
     position: absolute;
     top: 10px;
     left: 10px;
-    color: #000;
-    text-shadow: 1px 1px 0 #fff, -1px -1px 0 #fff, 1px -1px 0 #fff, -1px 1px 0 #fff;
+    color: yellow;
+    text-shadow: 1px 1px 0 black, -1px -1px 0 black, 1px -1px 0 black, -1px 1px 0 black;
 }
 
 
@@ -91,7 +91,7 @@ li{
 
 /* Effet de survol sur l'image */
 #search-results img:hover {
-    transform: scale(1.1);
+    transform: scale(1.2);
     transition: transform 0.5s;
     filter: brightness(0.5);
 }
