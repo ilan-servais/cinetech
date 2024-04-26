@@ -8,6 +8,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css" rel="stylesheet">
     <link rel="stylesheet" href="style/series.css">
+    <link rel="stylesheet" href="style/index.css">
 </head>
 <body>
 
@@ -40,16 +41,34 @@
             </div>       
         </header>
 
-    <div class="main-bg">
         <div class="container">
             <div class="row">
-                <div class="col-lg-8 col-md-10 mx-auto text-white">
-                    <h1 class="text-center">Bienvenue sur notre site !</h1>
-                    <p class="lead text-center">Découvrez les derniers films et séries populaires.</p>
+                <div class="col-lg-8 col-md-10 mx-auto text-warning">
+                    <h1 class="text-center">Welcome !</h1>
+                </div>
+            </div>
+        
+            <!-- Conteneur pour les tendances des films et des séries -->
+            <div class="row mt-5">
+                <!-- Conteneur pour les tendances des films -->
+                <div class="col-lg-6 mx-auto">
+                    <h2 class="text-warning text-center">Movies</h2>
+                    <div id="trendingMoviesList" class="row">
+                        <!-- Les tendances des films seront affichées ici -->
+                    </div>
+                </div>
+        
+                <!-- Conteneur pour les tendances des séries -->
+                <div class="col-lg-6 mx-auto">
+                    <h2 class="text-warning text-center">TV</h2>
+                    <div id="trendingSeriesList" class="row">
+                        <!-- Les tendances des séries seront affichées ici -->
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
+        
+        
 
     <footer class="py-3 bg-black text-white text-center">
         <div class="container">
@@ -57,6 +76,7 @@
         </div>
     </footer>
 
+    <script src="scripts/index.js"></script>
     <script src="scripts/search.js"></script>
     <script src="scripts/logout.js"></script>
 </body>

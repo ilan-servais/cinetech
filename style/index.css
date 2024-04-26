@@ -1,0 +1,26 @@
+.card {
+    background-color: black; /* Modifier la couleur de fond */
+    border: none; /* Supprimer les bordures */
+    margin-bottom: 20px; /* Ajouter un espacement en bas */
+}
+
+.card-title {
+    color: yellow; /* Modifier la couleur du titre */
+}
+
+.card-text {
+    color: white; /* Modifier la couleur du texte */
+}
+
+.card-link {
+    text-decoration: none; /* Supprimer les soulignements des liens */
+}
+
+/* CSS */
+.card {
+    transition: transform 0.3s ease;
+}
+
+.card:hover {
+    transform: scale(1.05);
+}
