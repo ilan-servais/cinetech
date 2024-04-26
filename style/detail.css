@@ -46,11 +46,41 @@ body{
     
 }
 
+#tv-info h2{
+    margin-top: 50px;
+}
+
 
 #tv-info p{
     margin-top: 50px;
     margin: 0.5rem;
 }
+
+#tv-cast {
+    margin-top: 50px;
+    margin-left:50px ;
+    display: flex;
+    justify-content: center;
+}
+
+#actor {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+#actor img {
+    width: 100%;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+#actor p {
+    text-align: center;
+    margin-top: 10px;
+}
+
 
 /* Style pour la section des résultats de recherche */
 #search-results {

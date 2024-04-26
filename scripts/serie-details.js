@@ -6,23 +6,36 @@ const urlParams = new URLSearchParams(window.location.search);
 const serieId = urlParams.get('id');
 
 // Utilisez serieId pour obtenir les détails de la série
-fetch(`https://api.themoviedb.org/3/tv/${serieId}?api_key=57be7838f9d1d893350a3227c0e862a5`)
-    .then(response => response.json())
-    .then(data => {
-        // Code pour afficher les détails de la série
-        const tvItem = document.createElement("div");
-        tvItem.innerHTML = `
-            <div id="tv-item">
-                <img src="https://image.tmdb.org/t/p/w500${data.poster_path}" alt="${data.name}">
-                <div id="tv-info">
-                    <h1>${data.name}</h1>
-                    <p>${data.overview}</p>
-                    <p>Viewers ratings: ${data.vote_average}</p>
-                </div>
+// Fetch the details of the TV show and the cast
+Promise.all([
+    fetch(`https://api.themoviedb.org/3/tv/${serieId}?api_key=57be7838f9d1d893350a3227c0e862a5`).then(response => response.json()),
+    fetch(`https://api.themoviedb.org/3/tv/${serieId}/credits?api_key=57be7838f9d1d893350a3227c0e862a5`).then(response => response.json())
+])
+.then(([data, credits]) => {
+    // Code to display the details of the TV show and the cast
+    const tvItem = document.createElement("div");
+    tvItem.innerHTML = `
+        <div id="tv-item">
+            <img src="https://image.tmdb.org/t/p/w500${data.poster_path}" alt="${data.name}">
+            <div id="tv-info">
+                <h1>${data.name}</h1>
+                <p>${data.overview}</p>
+                <p>Viewers ratings: ${data.vote_average}</p>
+                <h2>Cast</h2>
+                <div id="tv-cast">
+                ${credits.cast.slice(0, 5).map(actor => `
+                    <div class="actor">
+                        <img src="https://image.tmdb.org/t/p/w500${actor.profile_path}" alt="${actor.name}">
+                        <p>${actor.name}</p>
+                    </div>
+                `).join('')}
             </div>
-        `;
-        tvDetails.appendChild(tvItem);
-    })
+            </div>
+            
+        </div>
+    `;
+    tvDetails.appendChild(tvItem);
+})
     .catch(error => {
         console.error(error);
     });
