@@ -66,7 +66,7 @@ results.forEach(result => {
     // Raccourcir le titre si sa longueur dépasse 20 caractères
     const titleText = result.title || result.name || 'Titre non disponible';
     const title = document.createElement('h2');
-    title.textContent = titleText.length > 10 ? titleText.slice(0, 10) + '...' : titleText;
+    title.textContent = titleText.length > 20 ? titleText.slice(0, 20) + '...' : titleText;
     card.appendChild(title);
 
     // Ajouter une image à la carte si disponible

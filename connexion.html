@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Netf-list | Login</title>
+    <link rel="icon" href="logo/logo.webp" type="image/x-icon" alt="Logo" class="logo">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css" rel="stylesheet">
+    <link rel="stylesheet" href="style/series.css">
+</head>
+<body>
+    <header class="p-3 bg-black text-white">
+        <div class="container">
+          <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+            <a href="index.html" class="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none">
+                <img src="logo/logo.webp" alt="Netf-list" width="120" height="96">
+            </a>    
+
+            <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+              <li><a href="index.html" class="nav-link px-2 text-warning">Home</a></li>
+              <li><a href="film.html" class="nav-link px-2 text-white">Movie</a></li>
+              <li><a href="series.html" class="nav-link px-2 text-white">TV</a></li>
+            </ul>    
+            <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3" id="search-form">
+                <input type="text" id="search-input" class="form-control" placeholder="Search..." aria-label="Search" autocomplete="off">
+            </form>  
+            <div class="text-end">
+                <a href="connexion.html" class="btn btn-outline-light me-2">Login</a>
+                <a href="inscription.html" class="btn btn-warning">Sign-up</a>
+            </div>
+          </div>
+            <div id="search-results">
+                <!-- Les résultats de recherche seront affichés ici -->
+            </div>
+        </div>       
+    </header>
+
+    <main class="container">
+        <h1 class="h3 mb-3 mt-5 fw-normal text-warning text-center">Login</h1>
+        <form id="loginForm" class="bg-black p-4">
+            <div class="form-floating">
+                <input type="text" class="form-control bg-black text-white" id="username" placeholder="Username" autocomplete="off">
+                <label for="username" class="text-white">Username</label>
+            </div>
+            <div class="form-floating mt-3">
+                <input type="password" class="form-control bg-black text-white" id="password" placeholder="Password" autocomplete="off">
+                <label for="password" class="text-white">Password</label>
+            </div>
+            <button class="btn btn-warning w-auto py-2 mt-3" type="submit">Login</button>
+        </form>
+    </main>    
+    
+    <footer class="py-3 bg-black text-white text-center">
+        <div class="container">
+            <p>Tous droits réservés &copy; 2024</p>
+        </div>
+    </footer>
+
+    <script src="scripts/search.js"></script>
+    <script src="scripts/connexion.js"></script>
+</body>
+</html>
+    
