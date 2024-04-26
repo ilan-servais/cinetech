@@ -9,7 +9,7 @@ document.addEventListener('DOMContentLoaded', function() {
             const password = document.getElementById('password').value;
 
             // Récupérer les informations d'inscription à partir du stockage local
-            const registeredUsername = localStorage.getItem('pseudo');
+            const registeredUsername = localStorage.getItem('pseudo'); // Utiliser 'pseudo' au lieu de 'username'
             const registeredPassword = localStorage.getItem('password');
 
             // Vérifier si les champs ne sont pas vides
@@ -21,7 +21,7 @@ document.addEventListener('DOMContentLoaded', function() {
             // Vérifier les informations de connexion
             if (username === registeredUsername && password === registeredPassword) {
                 // Enregistrer l'utilisateur connecté dans la session
-                sessionStorage.setItem('currentUser', username);
+                sessionStorage.setItem('username', username);
 
                 // Rediriger vers la page d'accueil si les informations sont valides
                 window.location.href = 'index.html';

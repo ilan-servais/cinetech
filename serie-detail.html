@@ -15,29 +15,30 @@
         <div class="container">
             <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
                 <a href="index.html" class="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none">
-                    <img src="logo/logo.png" alt="Nom_de_votre_logo" width="120" height="96">
-                </a>
-    
+                    <img src="logo/logo.webp" alt="Netf-list" width="120" height="96">
+                </a>    
+
                 <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
                     <li><a href="index.html" class="nav-link px-2 text-warning">Home</a></li>
                     <li><a href="film.html" class="nav-link px-2 text-white">Movie</a></li>
                     <li><a href="series.html" class="nav-link px-2 text-white">TV</a></li>
-                </ul>
-    
-                <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3" id="search-form">
-                    <input type="text" id="search-input" class="form-control" placeholder="Rechercher..." aria-label="Rechercher" autocomplete="off">
-                </form>
-    
-                <div class="text-end">
-                    <a href="connexion.html" class="btn btn-outline-light me-2">Login</a>
-                    <a href="inscription.html" class="btn btn-warning">Sign-up</a>
+                </ul>    
+                    <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3" id="search-form">
+                        <input type="text" id="search-input" class="form-control" placeholder="Rechercher..." aria-label="Rechercher" autocomplete="off">
+                    </form>
+
+                <a href="connexion.html" id="loginBtn" class="btn btn-outline-light me-2">Login</a>
+                <a href="inscription.html" id="signupBtn" class="btn btn-warning">Sign-up</a>
+                
+                <!-- Boutons de favoris et de déconnexion (initiallement cachés) -->
+                <a href="#" id="favorisBtn" style="display: none;" class="btn btn-outline-light me-2"><i class="bi bi-heart"></i></a>
+                <button type="button" id="logoutBtn" style="display: none;" class="btn btn-warning">Logout</button>
                 </div>
-            </div>
-            <div id="search-results">
-                <!-- Les résultats de recherche seront affichés ici -->
-            </div>
-        </div>
-    </header>
+                <div id="search-results">
+                    <!-- Les résultats de recherche seront affichés ici -->
+                </div>
+            </div>       
+        </header>
 
   <div class="main-bg"> <!-- Div principale pour le contenu de la page -->
     <div id="tv-details">
@@ -73,5 +74,6 @@
 
     <script src="scripts/comm.js"></script>
     <script src="scripts/search.js"></script>
+    <script src="scripts/logout.js"></script>
 </body>
 </html>
