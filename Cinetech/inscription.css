@@ -1,0 +1,64 @@
+
+* {
+     margin: 0;
+     padding: 0;
+     box-sizing: border-box;
+     font-family: 'Segoe UI', Tahoma, Verdana, sans-serif;
+
+}
+
+
+form {
+    display: flex;
+    flex-direction: column;
+    background-color: rgb(152, 156, 159);
+    padding: 20px;
+    width: 230px;
+    position: absolute; /* Définit le positionnement absolu */
+    top: 50%; /* Place le haut du formulaire à 50% de la hauteur du parent */
+    left: 50%; /* Place la gauche du formulaire à 50% de la largeur du parent */
+    transform: translate(-50%, -50%); /* Déplace le formulaire de moitié de sa propre largeur et hauteur vers le haut et la gauche */
+}
+
+
+h4 {
+     text-align: center;
+     font-size: 20px;
+
+}
+
+h2 {
+top: 100px;
+
+
+
+}
+
+hr {
+    margin: 10px 0;
+    background-color: #ccc;
+    border: 0;
+    height: 1px;
+    width: 100%;
+}
+
+.nom {
+     display: flex;
+     width: 100%;
+     justify-content: space-between;
+     flex-direction: column;
+}
+
+label {
+margin-bottom: 6px;  
+}
+
+input {
+margin-bottom: 5px;
+padding: 5px;
+}
+
+.bande-titre a {
+    color: red;
+    text-decoration: none;
+}

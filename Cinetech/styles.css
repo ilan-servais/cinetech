@@ -1,0 +1,156 @@
+/* Style pour le corps de la page */
+body {
+    margin: 0; /* Supprime la marge par défaut du corps */
+    font-family: Arial, sans-serif; /* Utilise une police de caractères par défaut */
+}
+
+/* Style pour la barre de navigation */
+.navbar {
+    background-color: black; /* Couleur de fond noire */
+    color: white; /* Couleur du texte blanc */
+    height: 60px; /* Hauteur de la barre de navigation */
+    width: 100%; /* Largeur de la barre de navigation */
+}
+
+/* Style pour les liens de la barre de navigation */
+.navbar a {
+    color: white; /* Couleur du texte blanc */
+    text-decoration: none; /* Supprimer les soulignements */
+    margin: 0 10px; /* Espacement entre les liens */
+}
+
+/* Style pour la section "Connexion" et "Inscription" */
+.connexion {
+    display: flex; /* Utiliser le modèle de boîte flexible */
+    align-items: center; /* Centrer verticalement */
+    position: absolute;
+    right: 20px; /* Espacement à droite */
+    top: 19px;
+}
+
+/* Style pour chaque logo individuel */
+.logo1 {
+    height: 60px;
+    width: 60px;
+    position: absolute; /* Position absolue par rapport au parent */
+    left: 30px; /* Distance par rapport à la gauche de son conteneur */
+    top: 4px;
+    /* Styles spécifiques au premier logo */
+}
+
+.logo2 {
+    height: 30px;
+    width: 30px;
+    position: absolute; /* Position absolue par rapport au parent */
+    left: 4px; /* Distance par rapport à la gauche de son conteneur */
+    top: 19px;
+    /* Styles spécifiques au deuxième logo */
+}
+
+.logo3 {
+    height: 30px;
+    width: 30px;
+    position: absolute; /* Position absolue par rapport au parent */
+    left: 90px; /* Distance par rapport à la gauche de son conteneur */
+    top: 19px;
+    /* Styles spécifiques au troisième logo */
+}
+
+/* Style pour la bande en dessous de la navbar */
+.bande {
+    width: 100%; /* Largeur de la bande */
+    height: 100px; /* Hauteur de la bande */
+    background-color: rgb(60, 86, 68); /* Couleur de fond de la bande */
+    margin-top: 0; /* Supprime la marge en haut */
+    padding-top: 10px; /* Ajoute du padding en haut pour le titre */
+    box-sizing: border-box; /* Inclut la bordure et le padding dans la largeur et la hauteur */
+}
+
+/* Style pour le titre dans la bande */
+.bande-titre {
+    color: rgb(255, 6, 6); /* Couleur du texte */
+    font-size: 24px; /* Taille de la police */
+    font-weight: bold; /* Gras */
+    position: absolute;
+    left: 20px;
+}
+
+/* Style pour le mot "Film" dans la bande */
+.bande-mot1 {
+    color: rgb(252, 248, 248); /* Couleur du texte */
+    font-size: 18px; /* Taille de la police */
+    font-weight: bold; /* Gras */
+    position: absolute;
+    right: 230px;
+}
+
+/* Style pour le mot "Film" dans la bande */
+.bande-mot2 {
+    color: rgb(248, 246, 246); /* Couleur du texte */
+    font-size: 18px; /* Taille de la police */
+    font-weight: bold; /* Gras */
+    position: absolute;
+    right: 150px;
+}
+
+/* Style pour le mot "Film" dans la bande */
+.bande-mot3 {
+    color: rgb(253, 250, 250); /* Couleur du texte */
+    font-size: 18px; /* Taille de la police */
+    font-weight: bold; /* Gras */
+    position: absolute;
+    right: 60px;
+}
+
+/* Style spécifique pour le main avec la classe .main-kaki */
+.main-kaki {
+    background-color: rgb(60, 86, 68);
+    padding: 600px;
+}
+
+/* Réinitialisation des marges et des paddings */
+body, h1, h2, p {
+    margin: 0;
+    padding: 0;
+}
+
+/* Style pour l'image */
+#image-container img {
+    width: 100%; /* Remplir toute la largeur */
+    height: 700px; /* Hauteur ajustable */
+}
+
+.bande2 {
+    width: 100%; /* Largeur de la bande */
+    height: 450px; /* Hauteur de la bande */
+    background-color: rgb(60, 86, 68); /* Couleur de fond de la bande */
+    margin-top: -5px;
+}
+
+/* Ajoutez le style pour les images et les conteneurs ici */
+
+.film-container {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.image-container {
+    width: calc(20% - 10px);
+    margin-right: 10px;
+}
+
+.image-container:last-child {
+    margin-right: 0;
+}
+
+.image-container img {
+    width: 100%;
+    height: auto;
+}
+
+/* Ajoutez d'autres styles au besoin */
+
+
+
+
