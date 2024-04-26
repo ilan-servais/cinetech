@@ -53,3 +53,33 @@ window.addEventListener('load', function() {
     }
 });
 
+const urlParam = new URLSearchParams(window.location.search);
+const filmId = urlParam.get('id');
+
+function showReviewFromApi() {
+    fetch(`https://api.themoviedb.org/3/tv/${filmId}/reviews?language=en-US&page=1&api_key=57be7838f9d1d893350a3227c0e862a5`)
+        .then(response => {
+            if (!response.ok) {
+                throw new Error(`HTTP error! status: ${response.status}`);
+            }
+            return response.json();
+        })
+        .then(data => {
+            // Code to display the reviews
+            data.results.forEach(review => {
+                const reviewElement = document.createElement('div');
+                reviewElement.classList.add('review');
+                reviewElement.innerHTML = `
+                    <h4>${review.author}</h4>
+                    <p>${review.content}</p>
+                `;
+                commentSection.appendChild(reviewElement);
+            });
+        })
+        .catch(error => {
+            console.error('There has been a problem with your fetch operation:', error);
+        });
+}
+
+// Call the function with a movie id
+showReviewFromApi();

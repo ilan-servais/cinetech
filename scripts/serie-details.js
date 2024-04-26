@@ -17,7 +17,7 @@ fetch(`https://api.themoviedb.org/3/tv/${serieId}?api_key=57be7838f9d1d893350a32
                 <div id="tv-info">
                     <h1>${data.name}</h1>
                     <p>${data.overview}</p>
-                    <p>Viewers note: ${data.vote_average}</p>
+                    <p>Viewers ratings: ${data.vote_average}</p>
                 </div>
             </div>
         `;
