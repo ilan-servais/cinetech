@@ -12,7 +12,7 @@ Promise.all([
 ])
 
 .then(([data, credits]) => {
-    // Code to display the details of the TV show and the cast
+    // code pour afficher les détails du film et les acteurs
     const tvItem = document.createElement("div");
     tvItem.innerHTML = `
         <div id="tv-item">

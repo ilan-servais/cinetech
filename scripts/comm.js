@@ -53,9 +53,13 @@ window.addEventListener('load', function() {
     }
 });
 
+// Récupérer l'ID de la série ou du film à partir des paramètres d'URL
+
 const urlParam = new URLSearchParams(window.location.search);
 serieId = urlParam.get('id');
 filmId = urlParam.get('id');
+
+// Afficher les avis de la série à partir de l'API
 
 function showTVReviewFromApi() {
     fetch(`https://api.themoviedb.org/3/tv/${serieId}/reviews?language=en-US&page=1&api_key=57be7838f9d1d893350a3227c0e862a5`)
@@ -66,7 +70,7 @@ function showTVReviewFromApi() {
             return response.json();
         })
         .then(data => {
-            // Code to display the reviews
+            // afficher les avis dans la div
             data.results.forEach(review => {
                 const reviewElement = document.createElement('div');
                 reviewElement.classList.add('review');
@@ -82,6 +86,8 @@ function showTVReviewFromApi() {
         });
 }
 
+// Afficher les avis du film à partir de l'API
+
 function showFilmReviewFromApi() {
     fetch(`https://api.themoviedb.org/3/movie/${filmId}/reviews?language=en-US&page=1&api_key=57be7838f
 9d1d893350a3227c0e862a5`)
@@ -92,7 +98,7 @@ function showFilmReviewFromApi() {
             return response.json();
         })
         .then(data => {
-            // Code to display the reviews
+            // afficher les avis dans la div
             data.results.forEach(review => {
                 const reviewElement = document.createElement('div');
                 reviewElement.classList.add('review');
@@ -111,5 +117,5 @@ function showFilmReviewFromApi() {
 
 showFilmReviewFromApi();
 
-// Call the function with a movie id
+
 showTVReviewFromApi();

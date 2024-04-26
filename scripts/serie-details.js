@@ -6,13 +6,14 @@ const urlParams = new URLSearchParams(window.location.search);
 const serieId = urlParams.get('id');
 
 // Utilisez serieId pour obtenir les détails de la série
-// Fetch the details of the TV show and the cast
+
+// Promise.all pour obtenir les détails de la série et les acteurs
 Promise.all([
     fetch(`https://api.themoviedb.org/3/tv/${serieId}?api_key=57be7838f9d1d893350a3227c0e862a5`).then(response => response.json()),
     fetch(`https://api.themoviedb.org/3/tv/${serieId}/credits?api_key=57be7838f9d1d893350a3227c0e862a5`).then(response => response.json())
 ])
 .then(([data, credits]) => {
-    // Code to display the details of the TV show and the cast
+    // code pour afficher les détails de la série et les acteurs
     const tvItem = document.createElement("div");
     tvItem.innerHTML = `
         <div id="tv-item">

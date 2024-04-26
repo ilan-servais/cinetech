@@ -2,6 +2,8 @@ const apiUrl = "https://api.themoviedb.org/3/discover/movie?api_key=57be7838f9d1
 const tvList = document.getElementById("tv-list");
 const tvCard = document.getElementById("tv-card");
 
+// fetch les films
+
 fetch(apiUrl)
     .then(response => response.json())
     .then(data => {
@@ -21,6 +23,7 @@ fetch(apiUrl)
         console.error(error);
     });
 
+// Pagination sur le scroll
 
 function paginationOnScroll() {
     let page = 1;

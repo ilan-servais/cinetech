@@ -2,6 +2,8 @@ const apiUrl = "https://api.themoviedb.org/3/trending/tv/week?api_key=57be7838f9
 const tvList = document.getElementById("tv-list")
 const tvCard = document.getElementById("tv-card")
 
+// fetch les séries
+
 fetch(apiUrl)
     .then(response => response.json())
     .then(data => {
@@ -22,7 +24,7 @@ fetch(apiUrl)
     })
 
 
-
+// Pagination sur le scroll
 
     function paginationOnScroll() {
         let page = 1;
