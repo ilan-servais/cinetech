@@ -302,3 +302,20 @@ body{
 img.logo {
     border-radius: 50%;
 }
+
+/* Largeur et hauteur de la barre de défilement */
+::-webkit-scrollbar {
+    width: 12px; /* Largeur de la barre de défilement */
+    height: 12px; /* Hauteur de la barre de défilement */
+  }
+  
+  /* Fond de la barre de défilement */
+  ::-webkit-scrollbar-track {
+    background-color: black; /* Couleur de fond de la barre de défilement */
+ }
+  
+  /* Barre de défilement elle-même */
+  ::-webkit-scrollbar-thumb {
+    background-color: yellow; /* Couleur de la barre de défilement */
+  }
+  
