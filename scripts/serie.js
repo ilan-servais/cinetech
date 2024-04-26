@@ -40,7 +40,7 @@ fetch(apiUrl)
                             const tvItem = document.createElement("li");
                             tvItem.innerHTML = `
                                 <div id="tv-card">
-                                <a href="film-detail.html?id=${tv.id}">
+                                <a href="serie-detail.html?id=${tv.id}">
                                         <img src="https://image.tmdb.org/t/p/w500${tv.poster_path}" alt="${tv.name}">
                                     </a>
                                 </div>
