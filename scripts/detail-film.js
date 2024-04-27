@@ -17,6 +17,7 @@
         const tvItem = document.createElement("div");
         tvItem.innerHTML = `
             <div id="tv-item">
+                <a href="#" id="addToFavoritesBtn" class="btn btn-outline-light me-2"><i class="bi bi-heart"></i></a>
                 <img src="https://image.tmdb.org/t/p/w500${data.poster_path}" alt="${data.name}">
                 <div id="tv-info">
                     <h1>${data.title}</h1>
@@ -24,13 +25,13 @@
                     <p>Viewers ratings: ${data.vote_average}</p>
                     <h2>Cast</h2>
                     <div id="tv-cast">
-                    ${credits.cast.slice(0, 5).map(actor => `
-                        <div id="actor">
-                            <img src="https://image.tmdb.org/t/p/w500${actor.profile_path}" alt="${actor.name}">
-                            <p>${actor.name}</p>
-                        </div>
-                    `).join('')}
-                </div>
+                        ${credits.cast.slice(0, 5).map(actor => `
+                            <div id="actor">
+                                <img src="https://image.tmdb.org/t/p/w500${actor.profile_path}" alt="${actor.name}">
+                                <p>${actor.name}</p>
+                            </div>
+                        `).join('')}
+                    </div>
                 </div>
             </div>
         `;

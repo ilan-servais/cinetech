@@ -24,3 +24,7 @@
 .card:hover {
     transform: scale(1.05);
 }
+
+.favorite-icon {
+    color: red;
+}

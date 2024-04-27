@@ -141,3 +141,6 @@ img.logo {
     background-color: yellow; /* Couleur de la barre de défilement */
   }
   
+  .favorite-icon {
+    color: red;
+}
