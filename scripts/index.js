@@ -2,6 +2,50 @@ document.addEventListener('DOMContentLoaded', function() {
     // Sélectionnez toutes les icônes de favoris
     const favoriteIcons = document.querySelectorAll('.favorite-icon');
 
+    // Mise à jour des icônes de favoris lors du chargement de la page
+    updateFavoriteIcons();
+
+    // Fonction pour mettre à jour les icônes de favoris lors du chargement de la page
+    function updateFavoriteIcons() {
+        let favorites = JSON.parse(localStorage.getItem('favorites')) || [];
+        favoriteIcons.forEach(icon => {
+            if (favorites.includes(icon.dataset.itemId)) {
+                icon.classList.add('favorited');
+            } else {
+                icon.classList.remove('favorited'); // Assurez-vous que la classe favorited est retirée si l'élément n'est pas dans les favoris
+            }
+        });
+    }
+
+    // Gestion de l'ajout aux favoris
+    document.addEventListener('click', function(event) {
+        if (event.target.classList.contains('favorite-icon')) {
+            event.stopPropagation();
+            event.preventDefault();
+
+            const itemId = event.target.dataset.itemId;
+            addToFavorites(itemId);
+        }
+    });
+    
+    // Gérer l'ajout d'un élément aux favoris
+    function addToFavorites(itemId) {
+        // Récupérer la liste de favoris depuis le localStorage
+        let favorites = JSON.parse(localStorage.getItem('favorites')) || [];
+
+        // Vérifier si l'élément est déjà dans la liste de favoris
+        if (!favorites.includes(itemId)) {
+            // Ajouter l'élément à la liste de favoris
+            favorites.push(itemId);
+
+            // Mettre à jour le localStorage avec la nouvelle liste de favoris
+            localStorage.setItem('favorites', JSON.stringify(favorites));
+
+            // Mettre à jour visuellement l'icône de favoris pour indiquer qu'il a été ajouté
+            document.querySelector(`.favorite-icon[data-item-id="${itemId}"]`).classList.add('favorited');
+        }
+    }
+    
     // Fonction pour créer une carte de film
     function createMovieCard(movie) {
         const movieLink = document.createElement('a');
@@ -22,6 +66,14 @@ document.addEventListener('DOMContentLoaded', function() {
         `;
         
         movieLink.appendChild(movieCard);
+
+        // Vérifier si le film est déjà dans les favoris
+        const favorites = JSON.parse(localStorage.getItem('favorites')) || [];
+        if (favorites.includes(movie.id)) {
+            // Si le film est déjà dans les favoris, changer la couleur de l'icône du bouton
+            movieCard.querySelector('.favorite-icon').classList.add('favorited');
+        }
+
         return movieLink;
     }
 
@@ -34,15 +86,14 @@ document.addEventListener('DOMContentLoaded', function() {
         const serieCard = document.createElement('div');
         serieCard.classList.add('mb-4');
         serieCard.innerHTML = `
-                <div class="card">
+            <div class="card">
                 <img src="https://image.tmdb.org/t/p/w500${serie.poster_path}" class="card-img-top" alt="${serie.name}">
                 <div class="card-body">
                     <h5 class="card-title">${serie.name}</h5>
                     <p class="card-text">${serie.overview}</p>
-                    <span class="bi bi-heart favorite-icon" data-item-id="${serie.id}" title="Add to Favorites"></span>
+                    <i class="bi bi-heart favorite-icon" data-item-id="${serie.id}" title="Add to Favorites"></i>
                 </div>
-            </div>    
-    
+            </div>
         `;
         
         serieLink.appendChild(serieCard);
@@ -128,77 +179,4 @@ document.addEventListener('DOMContentLoaded', function() {
             trendingSeriesList.appendChild(seriesColumn2);
         })
         .catch(error => console.error('Erreur lors de la récupération des tendances de séries :', error));
-
-    // Gestion de l'ajout aux favoris
-    document.addEventListener('click', function(event) {
-        if (event.target.classList.contains('favorite-icon')) {
-            // Empêcher la propagation de l'événement de clic
-            event.stopPropagation();
-            
-            // Empêcher le comportement par défaut du clic sur l'icône de favoris
-            event.preventDefault();
-
-            const itemId = event.target.dataset.itemId;
-            addToFavorites(itemId);
-        }
-
-        // Ajouter un gestionnaire d'événements pour chaque icône de favoris
-        favoriteIcons.forEach(icon => {
-            icon.addEventListener('click', function(event) {
-                // Empêcher la propagation de l'événement pour éviter la redirection
-                event.stopPropagation();
-                
-                // Empêcher le comportement par défaut du clic sur l'icône de favoris
-                event.preventDefault();
-
-                // Récupérez l'ID de l'élément correspondant à cette icône de favoris
-                const itemId = icon.dataset.itemId;
-
-                // Ajoutez l'élément aux favoris
-                addToFavorites(itemId);
-            });
-        });
-    
-        // Gérer l'ajout d'un élément aux favoris
-        function addToFavorites(itemId) {
-            // Récupérer la liste de favoris depuis le localStorage
-            let favorites = JSON.parse(localStorage.getItem('favorites')) || [];
-    
-            // Vérifier si l'élément est déjà dans la liste de favoris
-            if (!favorites.includes(itemId)) {
-                // Ajouter l'élément à la liste de favoris
-                favorites.push(itemId);
-    
-                // Mettre à jour le localStorage avec la nouvelle liste de favoris
-                localStorage.setItem('favorites', JSON.stringify(favorites));
-    
-                // Mettre à jour visuellement l'icône de favoris pour indiquer qu'il a été ajouté
-                icon.classList.add('favorited');
-            }
-        }
-    });
-
-
-    // Fonction pour ajouter un élément aux favoris
-    function addToFavorites(itemId) {
-        let favorites = JSON.parse(localStorage.getItem('favorites')) || [];
-        if (!favorites.includes(itemId)) {
-            favorites.push(itemId);
-            localStorage.setItem('favorites', JSON.stringify(favorites));
-            event.target.classList.add('favorited');
-        }
-    }
-
-    // Mise à jour des icônes de favoris lors du chargement de la page
-    updateFavoriteIcons();
-
-    // Fonction pour mettre à jour les icônes de favoris lors du chargement de la page
-    function updateFavoriteIcons() {
-        let favorites = JSON.parse(localStorage.getItem('favorites')) || [];
-        document.querySelectorAll('.favorite-icon').forEach(icon => {
-            if (favorites.includes(icon.dataset.itemId)) {
-                icon.classList.add('favorited');
-            }
-        });
-    }
 });

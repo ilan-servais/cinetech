@@ -25,6 +25,12 @@
     transform: scale(1.05);
 }
 
+/* Style pour l'icône de favoris */
 .favorite-icon {
-    color: red;
+color: red;
+}
+
+/* Style pour l'icône de favoris lorsqu'elle est déjà dans les favoris */
+.favorite-icon.favorited {
+    color: yellow; /* Changer la couleur de l'icône lorsqu'elle est déjà dans les favoris */
 }
