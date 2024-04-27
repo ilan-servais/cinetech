@@ -24,7 +24,7 @@
                     <p>${data.overview}</p>
                     <p>Viewers ratings: ${data.vote_average}</p>
                     <h2>Cast</h2>
-                    <div id="tv-cast">
+                    <div id="tv-cast" >
                         ${credits.cast.slice(0, 5).map(actor => `
                             <div id="actor">
                                 <img src="https://image.tmdb.org/t/p/w500${actor.profile_path}" alt="${actor.name}">

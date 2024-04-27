@@ -16,7 +16,7 @@ Promise.all([
     // code pour afficher les détails de la série et les acteurs
     const tvItem = document.createElement("div");
     tvItem.innerHTML = `
-        <div id="tv-item">
+            <div id="tv-item">
             <a href="#" id="addToFavoritesBtn" class="btn btn-outline-light me-2"><i class="bi bi-heart"></i></a>
             <img src="https://image.tmdb.org/t/p/w500${data.poster_path}" alt="${data.name}">
             <div id="tv-info">
@@ -24,16 +24,15 @@ Promise.all([
                 <p>${data.overview}</p>
                 <p>Viewers ratings: ${data.vote_average}</p>
                 <h2>Cast</h2>
-                <div id="tv-cast">
-                ${credits.cast.slice(0, 5).map(actor => `
-                    <div class="actor">
-                        <img src="https://image.tmdb.org/t/p/w500${actor.profile_path}" alt="${actor.name}">
-                        <p>${actor.name}</p>
-                    </div>
-                `).join('')}
+                <div id="tv-cast" class="d-flex justify-content-center">
+                    ${credits.cast.slice(0, 5).map(actor => `
+                        <div class="actor text-center">
+                            <img src="https://image.tmdb.org/t/p/w500${actor.profile_path}" alt="${actor.name}">
+                            <p>${actor.name}</p>
+                        </div>
+                    `).join('')}
+                </div>
             </div>
-            </div>
-            
         </div>
     `;
     tvDetails.appendChild(tvItem);
