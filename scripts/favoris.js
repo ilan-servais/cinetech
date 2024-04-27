@@ -10,7 +10,9 @@ document.addEventListener('DOMContentLoaded', function() {
         card.classList.add('col-lg-3', 'col-md-4', 'col-sm-6', 'mb-4');
         card.innerHTML = `
             <div class="card bg-black text-white">
-                <img src="https://image.tmdb.org/t/p/w500${movie.poster_path}" class="card-img-top" alt="${movie.title}">
+                <a href="film-detail.html?id=${movie.id}"> <!-- Ajout de la balise <a> avec l'URL de détail du film -->
+                    <img src="https://image.tmdb.org/t/p/w500${movie.poster_path}" class="card-img-top" alt="${movie.title}">
+                </a>
                 <div class="card-body">
                     <h5 class="card-title">${movie.title}</h5>
                     <p class="card-text">${movie.overview}</p>
@@ -21,13 +23,16 @@ document.addEventListener('DOMContentLoaded', function() {
         return card;
     }
 
+
     // Fonction pour créer une carte de série
     function createSerieCard(serie) {
         const card = document.createElement('div');
         card.classList.add('col-lg-3', 'col-md-4', 'col-sm-6', 'mb-4');
         card.innerHTML = `
             <div class="card bg-black text-white">
-                <img src="https://image.tmdb.org/t/p/w500${serie.poster_path}" class="card-img-top" alt="${serie.name}">
+                <a href="serie-detail.html?id=${serie.id}"> <!-- Ajout de la balise <a> avec l'URL de détail de la série -->
+                    <img src="https://image.tmdb.org/t/p/w500${serie.poster_path}" class="card-img-top" alt="${serie.name}">
+                </a>
                 <div class="card-body">
                     <h5 class="card-title">${serie.name}</h5>
                     <p class="card-text">${serie.overview}</p>

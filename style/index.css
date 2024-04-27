@@ -34,3 +34,37 @@ color: red;
 .favorite-icon.favorited {
     color: yellow; /* Changer la couleur de l'icône lorsqu'elle est déjà dans les favoris */
 }
+
+/* police Quicksand */
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap');
+
+body {
+    font-family: 'Quicksand', sans-serif;
+}
+
+
+h1 {
+    font-family: 'Quicksand', sans-serif;
+    font-weight: 700; 
+    font-size: 2rem; 
+}
+
+p {
+    font-family: 'Quicksand', sans-serif;
+    font-weight: 400; 
+    font-size: 1rem; 
+}
+
+#search-results h2 {
+    font-family: 'Quicksand', sans-serif;
+}
+
+#search-results p {
+    font-family: 'Quicksand', sans-serif;
+}
+
+/* Header soulignement */
+.nav-link:hover,
+.nav-link.active {
+    border-bottom: 2px solid #FFC107;
+}

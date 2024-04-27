@@ -62,7 +62,7 @@ li{
 
 /* Effet de survol sur chaque carte de résultat de recherche */
 #search-results .card:hover {
-    box-shadow: 0 0 130px yellow;
+    box-shadow: 0 0 30px yellow;
     transform: scale(1.1);
     transition: transform 0.5s;
     filter: brightness(0.5);
@@ -77,7 +77,7 @@ li{
     position: absolute;
     top: 0px;
     left: 5px;
-    color: yellow;
+    color: whitesmoke;
     text-shadow: 1px 1px 0 black, -1px -1px 0 black, 1px -1px 0 black, -1px 1px 0 black;
 }
 
@@ -151,3 +151,44 @@ img.logo {
         color: yellow; /* Changer la couleur de l'icône lorsqu'elle est déjà dans les favoris */
     }
     
+/* police Quicksand */
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap');
+
+body {
+    font-family: 'Quicksand', sans-serif;
+}
+
+
+h1 {
+    font-family: 'Quicksand', sans-serif;
+    font-weight: 700; 
+    font-size: 2rem; 
+}
+
+p {
+    font-family: 'Quicksand', sans-serif;
+    font-weight: 400; 
+    font-size: 1rem; 
+}
+
+#search-results h2 {
+    font-family: 'Quicksand', sans-serif;
+}
+
+#search-results p {
+    font-family: 'Quicksand', sans-serif;
+}
+
+.card-img-top {
+    transition: transform 0.3s ease; 
+}
+
+.card-img-top:hover {
+    transform: scale(1.1); 
+}
+
+/* Header soulignement */
+.nav-link:hover,
+.nav-link.active {
+    border-bottom: 2px solid #FFC107;
+}

@@ -57,28 +57,36 @@ document.addEventListener('DOMContentLoaded', function() {
         
         const movieCard = document.createElement('div');
         movieCard.classList.add('mb-4');
+        
+        // Limite de caractères pour la description
+        const maxChars = 150;
+        let overview = movie.overview;
+        if (overview.length > maxChars) {
+            overview = overview.substring(0, maxChars) + '...';
+        }
+        
         movieCard.innerHTML = `
             <div class="card">
                 <img src="https://image.tmdb.org/t/p/w500${movie.poster_path}" class="card-img-top" alt="${movie.title}">
                 <div class="card-body">
                     <h5 class="card-title">${movie.title}</h5>
-                    <p class="card-text">${movie.overview}</p>
+                    <p class="card-text">${overview}</p>
                     <i class="bi bi-heart favorite-icon" data-item-id="${movie.id}" title="Add to Favorites"></i>
                 </div>
             </div>
         `;
         
-        movieLink.appendChild(movieCard);
-
+        movieLink.appendChild(movieCard); // Ajouter la carte du film au lien
+    
         // Vérifier si le film est déjà dans les favoris
         const favorites = JSON.parse(localStorage.getItem('favorites')) || [];
         if (favorites.includes(movie.id)) {
             // Si le film est déjà dans les favoris, changer la couleur de l'icône du bouton
             movieCard.querySelector('.favorite-icon').classList.add('favorited');
         }
-
-        return movieLink;
-    }
+    
+        return movieLink; // Retourner le lien contenant la carte du film
+    }    
 
     // Fonction pour créer une carte de série
     function createSerieCard(serie) {
@@ -88,20 +96,30 @@ document.addEventListener('DOMContentLoaded', function() {
         
         const serieCard = document.createElement('div');
         serieCard.classList.add('mb-4');
+        
+        // Limite de caractères pour la description
+        const maxChars = 90;
+        let overview = serie.overview;
+        if (overview.length > maxChars) {
+            overview = overview.substring(0, maxChars) + '...';
+        }
+        
         serieCard.innerHTML = `
             <div class="card">
                 <img src="https://image.tmdb.org/t/p/w500${serie.poster_path}" class="card-img-top" alt="${serie.name}">
                 <div class="card-body">
                     <h5 class="card-title">${serie.name}</h5>
-                    <p class="card-text">${serie.overview}</p>
+                    <p class="card-text">${overview}</p>
                     <i class="bi bi-heart favorite-icon" data-item-id="${serie.id}" title="Add to Favorites"></i>
                 </div>
             </div>
         `;
         
-        serieLink.appendChild(serieCard);
-        return serieLink;
+        serieLink.appendChild(serieCard); // Ajouter la carte de la série au lien
+        
+        return serieLink; // Retourner le lien contenant la carte de la série
     }
+    
 
     // Récupérer les tendances de films
     fetch('https://api.themoviedb.org/3/discover/movie?api_key=57be7838f9d1d893350a3227c0e862a5')
