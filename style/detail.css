@@ -322,3 +322,7 @@ img.logo {
   .favorite-icon {
     color: red;
 }
+
+.favorited .bi-heart {
+    color: red;
+}

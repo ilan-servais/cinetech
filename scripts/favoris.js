@@ -14,7 +14,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 <div class="card-body">
                     <h5 class="card-title">${movie.title}</h5>
                     <p class="card-text">${movie.overview}</p>
-                    <button class="btn btn-warning delete-btn" data-item-id="${movie.id}">Remove from Favorites</button>
+                    <button class="btn btn-warning delete-btn bi-heart" data-item-id="${movie.id}"> Remove</button>
                 </div>
             </div>
         `;
@@ -31,7 +31,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 <div class="card-body">
                     <h5 class="card-title">${serie.name}</h5>
                     <p class="card-text">${serie.overview}</p>
-                    <button class="btn btn-warning delete-btn" data-item-id="${serie.id}">Remove from Favorites</button>
+                    <button class="btn btn-warning delete-btn bi-heart" data-item-id="${serie.id}"> Remove</button>
                 </div>
             </div>
         `;

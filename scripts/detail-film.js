@@ -17,7 +17,7 @@
         const tvItem = document.createElement("div");
         tvItem.innerHTML = `
             <div id="tv-item">
-                <a href="#" id="addToFavoritesBtn" class="btn btn-outline-light me-2"><i class="bi bi-heart"></i></a>
+                <button id="addToFavoritesBtn" class="btn btn-outline-light me-2"><i class="bi bi-heart"></i></button>
                 <img src="https://image.tmdb.org/t/p/w500${data.poster_path}" alt="${data.name}">
                 <div id="tv-info">
                     <h1>${data.title}</h1>
@@ -36,8 +36,42 @@
             </div>
         `;
         tvDetails.appendChild(tvItem);
+
+        // Vérifier si le film est déjà dans les favoris
+        const favorites = JSON.parse(localStorage.getItem('favorites')) || [];
+        const addToFavoritesBtn = document.getElementById('addToFavoritesBtn');
+        if (favorites.includes(filmId)) {
+            // Si le film est déjà dans les favoris, changer la couleur de l'icône du bouton
+            addToFavoritesBtn.classList.add('favorited');
+        }
+
+        // Ajouter un gestionnaire d'événements au bouton "Add to Favorites"
+        addToFavoritesBtn.addEventListener('click', function() {
+            addToFavorites(filmId);
+        });
     })
     .catch(error => {
         console.error(error);
     });
+
+    // Fonction pour ajouter un film aux favoris
+    function addToFavorites(filmId) {
+        // Récupérer la liste de favoris depuis le localStorage
+        let favorites = JSON.parse(localStorage.getItem('favorites')) || [];
+
+        // Vérifier si le film est déjà dans la liste de favoris
+        if (!favorites.includes(filmId)) {
+            // Ajouter le film à la liste de favoris
+            favorites.push(filmId);
+
+            // Mettre à jour le localStorage avec la nouvelle liste de favoris
+            localStorage.setItem('favorites', JSON.stringify(favorites));
+
+            // Modifier la couleur de l'icône du bouton pour indiquer qu'il a été ajouté aux favoris
+            document.getElementById('addToFavoritesBtn').classList.add('favorited');
+
+            // Afficher un message dans la console pour le débogage
+            console.log("Film ajouté aux favoris :", filmId);
+        }
+    }
 })();
