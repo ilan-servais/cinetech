@@ -31,7 +31,11 @@
                 <button id="addToFavoritesBtn" class="btn btn-outline-light me-2"><i class="bi bi-heart"></i></button>
                 <div id="tv-info">
                     <img src="https://image.tmdb.org/t/p/w500${data.poster_path}" alt="${data.name}">
-                    <p>${data.overview}</p>
+                    
+                    <div class="overview-container">
+                        <p>${data.overview}</p>
+                    </div>
+
                     <p>Status : ${data.status}</p>
                     <p>Release Date : ${data.release_date}</p>
                     <p>Runtime : ${data.runtime} minutes</p>
@@ -52,11 +56,11 @@
                     
                     <h2>Trailer</h2>
                     ${trailerHtml}
-                    
+                         
                     <h2>Cast</h2>
                     <div id="tv-cast" class="d-flex justify-content-center">
                         ${credits.cast.slice(0, 5).map(actor => `
-                            <div id="actor">
+                    <div class="actor text-center">
                                 <img src="https://image.tmdb.org/t/p/w500${actor.profile_path}" alt="${actor.name}">
                                 <p>${actor.name}</p>
                             </div>
