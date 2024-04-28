@@ -56,10 +56,10 @@ results.forEach(result => {
     const link = document.createElement('a');
     if (result.media_type === 'movie') {
         // Lien vers la page de détails des films avec l'ID du film en tant que paramètre de requête
-        link.href = `http://127.0.0.1:5500/film-detail.html?id=${result.id}`;
+        link.href = `film-detail.html?id=${result.id}`;
     } else if (result.media_type === 'tv') {
         // Lien vers la page de détails des séries avec l'ID de la série en tant que paramètre de requête
-        link.href = `http://127.0.0.1:5500/serie-detail.html?id=${result.id}`;
+        link.href = `serie-detail.html?id=${result.id}`;
     }
     link.appendChild(card);
 
