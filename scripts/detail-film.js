@@ -7,24 +7,54 @@
     const urlParams = new URLSearchParams(window.location.search);
     let filmId = urlParams.get('id');
 
-    // Utilisez filmId pour obtenir les détails du film
+    // Utiliser filmId pour obtenir les détails du film
     Promise.all([
         fetch(`https://api.themoviedb.org/3/movie/${filmId}?api_key=57be7838f9d1d893350a3227c0e862a5`).then(response => response.json()),
-        fetch(`https://api.themoviedb.org/3/movie/${filmId}/credits?api_key=57be7838f9d1d893350a3227c0e862a5`).then(response => response.json())
+        fetch(`https://api.themoviedb.org/3/movie/${filmId}/credits?api_key=57be7838f9d1d893350a3227c0e862a5`).then(response => response.json()),
+        fetch(`https://api.themoviedb.org/3/movie/${filmId}/videos?api_key=57be7838f9d1d893350a3227c0e862a5`).then(response => response.json())
     ])
-    .then(([data, credits]) => {
+    .then(([data, credits, videos]) => {
+        // Vérifier si des vidéos sont disponibles avant d'ajouter la bande-annonce
+        let trailerHtml = '';
+        if (data.videos && data.videos.results && data.videos.results.length > 0) {
+            trailerHtml = `
+                <h2>Trailer</h2>
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/${data.videos.results[0].key}" title="${data.title}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            `;
+        }
+
         // code pour afficher les détails du film et les acteurs
         const tvItem = document.createElement("div");
         tvItem.innerHTML = `
             <div id="tv-item">
+                <h1>${data.title}</h1>
                 <button id="addToFavoritesBtn" class="btn btn-outline-light me-2"><i class="bi bi-heart"></i></button>
-                <img src="https://image.tmdb.org/t/p/w500${data.poster_path}" alt="${data.name}">
                 <div id="tv-info">
-                    <h1>${data.title}</h1>
+                    <img src="https://image.tmdb.org/t/p/w500${data.poster_path}" alt="${data.name}">
                     <p>${data.overview}</p>
-                    <p>Viewers ratings: ${data.vote_average}</p>
+                    <p>Status : ${data.status}</p>
+                    <p>Release Date : ${data.release_date}</p>
+                    <p>Runtime : ${data.runtime} minutes</p>
+                    <p>Language : ${data.original_language}</p>
+                    <p>Genres : ${data.genres.map(genre => genre.name).join(', ')}</p>
+                    <p>Production Companies : ${data.production_companies.map(company => company.name).join(', ')}</p>
+                    <p>Production Countries : ${data.production_countries.map(country => country.name).join(', ')}</p>
+                    <p>Revenue : $${data.revenue.toLocaleString()}</p>
+                    <p>Budget : $${data.budget.toLocaleString()}</p>
+                    <p>Tagline : ${data.tagline}</p>
+                    <p>Popularity : ${data.popularity}</p>
+                    <p>Vote Count : ${data.vote_count}</p>
+                    <p>Vote Average : ${data.vote_average}</p>
+                    <p>Adult : ${data.adult}</p>
+                    <p>Homepage : <a href="${data.homepage}" class="text-warning" target="_blank">${data.homepage}</a></p>
+                    <p>Original Title : ${data.original_title}</p>
+                    <p>Tagline : ${data.tagline}</p>
+                    
+                    <h2>Trailer</h2>
+                    ${trailerHtml}
+                    
                     <h2>Cast</h2>
-                    <div id="tv-cast">
+                    <div id="tv-cast" class="d-flex justify-content-center">
                         ${credits.cast.slice(0, 5).map(actor => `
                             <div id="actor">
                                 <img src="https://image.tmdb.org/t/p/w500${actor.profile_path}" alt="${actor.name}">
